@@ -1,0 +1,1093 @@
+
+M8_BOT.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000060a  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000002c  00800060  0000060a  0000069e  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          0000016c  0080008c  0080008c  000006ca  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  000006ca  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  000006fc  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 00000160  00000000  00000000  00000738  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   000014d4  00000000  00000000  00000898  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000a85  00000000  00000000  00001d6c  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   000015b5  00000000  00000000  000027f1  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000031c  00000000  00000000  00003da8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    0000e672  00000000  00000000  000040c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000aad  00000000  00000000  00012736  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 00000110  00000000  00000000  000131e3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_macro  00000a31  00000000  00000000  000132f3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	1a c0       	rjmp	.+52     	; 0x36 <__ctors_end>
+   2:	34 c0       	rjmp	.+104    	; 0x6c <__bad_interrupt>
+   4:	33 c0       	rjmp	.+102    	; 0x6c <__bad_interrupt>
+   6:	32 c0       	rjmp	.+100    	; 0x6c <__bad_interrupt>
+   8:	31 c0       	rjmp	.+98     	; 0x6c <__bad_interrupt>
+   a:	30 c0       	rjmp	.+96     	; 0x6c <__bad_interrupt>
+   c:	2f c0       	rjmp	.+94     	; 0x6c <__bad_interrupt>
+   e:	2e c0       	rjmp	.+92     	; 0x6c <__bad_interrupt>
+  10:	92 c1       	rjmp	.+804    	; 0x336 <__vector_8>
+  12:	2c c0       	rjmp	.+88     	; 0x6c <__bad_interrupt>
+  14:	2b c0       	rjmp	.+86     	; 0x6c <__bad_interrupt>
+  16:	9e c1       	rjmp	.+828    	; 0x354 <__vector_11>
+  18:	29 c0       	rjmp	.+82     	; 0x6c <__bad_interrupt>
+  1a:	5d c2       	rjmp	.+1210   	; 0x4d6 <__vector_13>
+  1c:	27 c0       	rjmp	.+78     	; 0x6c <__bad_interrupt>
+  1e:	26 c0       	rjmp	.+76     	; 0x6c <__bad_interrupt>
+  20:	25 c0       	rjmp	.+74     	; 0x6c <__bad_interrupt>
+  22:	24 c0       	rjmp	.+72     	; 0x6c <__bad_interrupt>
+  24:	23 c0       	rjmp	.+70     	; 0x6c <__bad_interrupt>
+
+00000026 <LT>:
+  26:	4c 54 00                                            LT.
+
+00000029 <RT>:
+  29:	52 54 00                                            RT.
+
+0000002c <ST>:
+  2c:	53 54 00                                            ST.
+
+0000002f <RV>:
+  2f:	52 56 00                                            RV.
+
+00000032 <FW>:
+  32:	46 57 00 00                                         FW..
+
+00000036 <__ctors_end>:
+  36:	11 24       	eor	r1, r1
+  38:	1f be       	out	0x3f, r1	; 63
+  3a:	cf e5       	ldi	r28, 0x5F	; 95
+  3c:	d4 e0       	ldi	r29, 0x04	; 4
+  3e:	de bf       	out	0x3e, r29	; 62
+  40:	cd bf       	out	0x3d, r28	; 61
+
+00000042 <__do_copy_data>:
+  42:	10 e0       	ldi	r17, 0x00	; 0
+  44:	a0 e6       	ldi	r26, 0x60	; 96
+  46:	b0 e0       	ldi	r27, 0x00	; 0
+  48:	ea e0       	ldi	r30, 0x0A	; 10
+  4a:	f6 e0       	ldi	r31, 0x06	; 6
+  4c:	02 c0       	rjmp	.+4      	; 0x52 <__do_copy_data+0x10>
+  4e:	05 90       	lpm	r0, Z+
+  50:	0d 92       	st	X+, r0
+  52:	ac 38       	cpi	r26, 0x8C	; 140
+  54:	b1 07       	cpc	r27, r17
+  56:	d9 f7       	brne	.-10     	; 0x4e <__do_copy_data+0xc>
+
+00000058 <__do_clear_bss>:
+  58:	21 e0       	ldi	r18, 0x01	; 1
+  5a:	ac e8       	ldi	r26, 0x8C	; 140
+  5c:	b0 e0       	ldi	r27, 0x00	; 0
+  5e:	01 c0       	rjmp	.+2      	; 0x62 <.do_clear_bss_start>
+
+00000060 <.do_clear_bss_loop>:
+  60:	1d 92       	st	X+, r1
+
+00000062 <.do_clear_bss_start>:
+  62:	a8 3f       	cpi	r26, 0xF8	; 248
+  64:	b2 07       	cpc	r27, r18
+  66:	e1 f7       	brne	.-8      	; 0x60 <.do_clear_bss_loop>
+  68:	a4 d2       	rcall	.+1352   	; 0x5b2 <main>
+  6a:	cd c2       	rjmp	.+1434   	; 0x606 <_exit>
+
+0000006c <__bad_interrupt>:
+  6c:	c9 cf       	rjmp	.-110    	; 0x0 <__vectors>
+
+0000006e <BluetoothManager>:
+
+
+
+
+void BluetoothManager (BTCON* connect)
+{
+  6e:	cf 93       	push	r28
+  70:	df 93       	push	r29
+	// Form a delay before proceeding to the next step.
+	
+	if (connect->timerDelay>0)
+  72:	fc 01       	movw	r30, r24
+  74:	22 81       	ldd	r18, Z+2	; 0x02
+  76:	33 81       	ldd	r19, Z+3	; 0x03
+  78:	21 15       	cp	r18, r1
+  7a:	31 05       	cpc	r19, r1
+  7c:	39 f0       	breq	.+14     	; 0x8c <BluetoothManager+0x1e>
+	{
+		connect->timerDelay--;
+  7e:	21 50       	subi	r18, 0x01	; 1
+  80:	31 09       	sbc	r19, r1
+  82:	33 83       	std	Z+3, r19	; 0x03
+  84:	22 83       	std	Z+2, r18	; 0x02
+	}
+	// Wait for the end of the delay.
+	if (connect->timerDelay == 0)
+  86:	23 2b       	or	r18, r19
+  88:	09 f0       	breq	.+2      	; 0x8c <BluetoothManager+0x1e>
+  8a:	a8 c0       	rjmp	.+336    	; 0x1dc <BluetoothManager+0x16e>
+  8c:	ec 01       	movw	r28, r24
+	{
+		
+		switch (connect->status)
+  8e:	88 81       	ld	r24, Y
+  90:	82 30       	cpi	r24, 0x02	; 2
+  92:	09 f4       	brne	.+2      	; 0x96 <BluetoothManager+0x28>
+  94:	99 c0       	rjmp	.+306    	; 0x1c8 <BluetoothManager+0x15a>
+  96:	38 f4       	brcc	.+14     	; 0xa6 <BluetoothManager+0x38>
+  98:	88 23       	and	r24, r24
+  9a:	09 f4       	brne	.+2      	; 0x9e <BluetoothManager+0x30>
+  9c:	69 c0       	rjmp	.+210    	; 0x170 <BluetoothManager+0x102>
+  9e:	81 30       	cpi	r24, 0x01	; 1
+  a0:	09 f4       	brne	.+2      	; 0xa4 <BluetoothManager+0x36>
+  a2:	71 c0       	rjmp	.+226    	; 0x186 <BluetoothManager+0x118>
+  a4:	9b c0       	rjmp	.+310    	; 0x1dc <BluetoothManager+0x16e>
+  a6:	84 30       	cpi	r24, 0x04	; 4
+  a8:	09 f4       	brne	.+2      	; 0xac <BluetoothManager+0x3e>
+  aa:	78 c0       	rjmp	.+240    	; 0x19c <BluetoothManager+0x12e>
+  ac:	08 f4       	brcc	.+2      	; 0xb0 <BluetoothManager+0x42>
+  ae:	81 c0       	rjmp	.+258    	; 0x1b2 <BluetoothManager+0x144>
+  b0:	85 30       	cpi	r24, 0x05	; 5
+  b2:	09 f0       	breq	.+2      	; 0xb6 <BluetoothManager+0x48>
+  b4:	93 c0       	rjmp	.+294    	; 0x1dc <BluetoothManager+0x16e>
+		{
+			case BT_READ:
+			//uart_printr("*****\r\n");
+			if(uart_tx_buffer_search((int16_t)FW,sizeof(FW)-1,0)>0)
+  b6:	40 e0       	ldi	r20, 0x00	; 0
+  b8:	50 e0       	ldi	r21, 0x00	; 0
+  ba:	62 e0       	ldi	r22, 0x02	; 2
+  bc:	70 e0       	ldi	r23, 0x00	; 0
+  be:	82 e3       	ldi	r24, 0x32	; 50
+  c0:	90 e0       	ldi	r25, 0x00	; 0
+  c2:	ad d1       	rcall	.+858    	; 0x41e <uart_tx_buffer_search>
+  c4:	89 2b       	or	r24, r25
+  c6:	59 f0       	breq	.+22     	; 0xde <BluetoothManager+0x70>
+			{
+				// Clear the receive buffer UART.
+				uart_rx_buffer_flush();
+  c8:	8e d1       	rcall	.+796    	; 0x3e6 <uart_rx_buffer_flush>
+				PORTB ^= (1<<PB0);
+  ca:	98 b3       	in	r25, 0x18	; 24
+  cc:	81 e0       	ldi	r24, 0x01	; 1
+  ce:	89 27       	eor	r24, r25
+  d0:	88 bb       	out	0x18, r24	; 24
+				connect->status = BT_FW;
+  d2:	18 82       	st	Y, r1
+				connect->timerDelay = DELAY_CFG_02;
+  d4:	89 eb       	ldi	r24, 0xB9	; 185
+  d6:	90 e0       	ldi	r25, 0x00	; 0
+  d8:	9b 83       	std	Y+3, r25	; 0x03
+  da:	8a 83       	std	Y+2, r24	; 0x02
+  dc:	7f c0       	rjmp	.+254    	; 0x1dc <BluetoothManager+0x16e>
+			}
+			else if(uart_tx_buffer_search((int16_t)RV,sizeof(RV)-1,0)>0)
+  de:	40 e0       	ldi	r20, 0x00	; 0
+  e0:	50 e0       	ldi	r21, 0x00	; 0
+  e2:	62 e0       	ldi	r22, 0x02	; 2
+  e4:	70 e0       	ldi	r23, 0x00	; 0
+  e6:	8f e2       	ldi	r24, 0x2F	; 47
+  e8:	90 e0       	ldi	r25, 0x00	; 0
+  ea:	99 d1       	rcall	.+818    	; 0x41e <uart_tx_buffer_search>
+  ec:	89 2b       	or	r24, r25
+  ee:	41 f0       	breq	.+16     	; 0x100 <BluetoothManager+0x92>
+			{
+				// Clear the receive buffer UART.
+				uart_rx_buffer_flush();
+  f0:	7a d1       	rcall	.+756    	; 0x3e6 <uart_rx_buffer_flush>
+				connect->status = BT_RV;
+  f2:	81 e0       	ldi	r24, 0x01	; 1
+  f4:	88 83       	st	Y, r24
+				connect->timerDelay = DELAY_CFG_02;
+  f6:	89 eb       	ldi	r24, 0xB9	; 185
+  f8:	90 e0       	ldi	r25, 0x00	; 0
+  fa:	9b 83       	std	Y+3, r25	; 0x03
+  fc:	8a 83       	std	Y+2, r24	; 0x02
+  fe:	6e c0       	rjmp	.+220    	; 0x1dc <BluetoothManager+0x16e>
+			}
+			else if(uart_tx_buffer_search((int16_t)ST,sizeof(ST)-1,0)>0)
+ 100:	40 e0       	ldi	r20, 0x00	; 0
+ 102:	50 e0       	ldi	r21, 0x00	; 0
+ 104:	62 e0       	ldi	r22, 0x02	; 2
+ 106:	70 e0       	ldi	r23, 0x00	; 0
+ 108:	8c e2       	ldi	r24, 0x2C	; 44
+ 10a:	90 e0       	ldi	r25, 0x00	; 0
+ 10c:	88 d1       	rcall	.+784    	; 0x41e <uart_tx_buffer_search>
+ 10e:	89 2b       	or	r24, r25
+ 110:	41 f0       	breq	.+16     	; 0x122 <BluetoothManager+0xb4>
+			{
+				// Clear the receive buffer UART.
+				uart_rx_buffer_flush();
+ 112:	69 d1       	rcall	.+722    	; 0x3e6 <uart_rx_buffer_flush>
+				connect->status = BT_STOP;
+ 114:	84 e0       	ldi	r24, 0x04	; 4
+ 116:	88 83       	st	Y, r24
+				connect->timerDelay = DELAY_CFG_02;
+ 118:	89 eb       	ldi	r24, 0xB9	; 185
+ 11a:	90 e0       	ldi	r25, 0x00	; 0
+ 11c:	9b 83       	std	Y+3, r25	; 0x03
+ 11e:	8a 83       	std	Y+2, r24	; 0x02
+ 120:	5d c0       	rjmp	.+186    	; 0x1dc <BluetoothManager+0x16e>
+			}
+			else if(uart_tx_buffer_search((int16_t)RT,sizeof(RT)-1,0)>0)
+ 122:	40 e0       	ldi	r20, 0x00	; 0
+ 124:	50 e0       	ldi	r21, 0x00	; 0
+ 126:	62 e0       	ldi	r22, 0x02	; 2
+ 128:	70 e0       	ldi	r23, 0x00	; 0
+ 12a:	89 e2       	ldi	r24, 0x29	; 41
+ 12c:	90 e0       	ldi	r25, 0x00	; 0
+ 12e:	77 d1       	rcall	.+750    	; 0x41e <uart_tx_buffer_search>
+ 130:	89 2b       	or	r24, r25
+ 132:	41 f0       	breq	.+16     	; 0x144 <BluetoothManager+0xd6>
+			{
+				// Clear the receive buffer UART.
+				uart_rx_buffer_flush();
+ 134:	58 d1       	rcall	.+688    	; 0x3e6 <uart_rx_buffer_flush>
+				connect->status = BT_RT;
+ 136:	83 e0       	ldi	r24, 0x03	; 3
+ 138:	88 83       	st	Y, r24
+				connect->timerDelay = DELAY_CFG_02;
+ 13a:	89 eb       	ldi	r24, 0xB9	; 185
+ 13c:	90 e0       	ldi	r25, 0x00	; 0
+ 13e:	9b 83       	std	Y+3, r25	; 0x03
+ 140:	8a 83       	std	Y+2, r24	; 0x02
+ 142:	4c c0       	rjmp	.+152    	; 0x1dc <BluetoothManager+0x16e>
+			}
+			else if(uart_tx_buffer_search((int16_t)LT,sizeof(LT)-1,0)>0)
+ 144:	40 e0       	ldi	r20, 0x00	; 0
+ 146:	50 e0       	ldi	r21, 0x00	; 0
+ 148:	62 e0       	ldi	r22, 0x02	; 2
+ 14a:	70 e0       	ldi	r23, 0x00	; 0
+ 14c:	86 e2       	ldi	r24, 0x26	; 38
+ 14e:	90 e0       	ldi	r25, 0x00	; 0
+ 150:	66 d1       	rcall	.+716    	; 0x41e <uart_tx_buffer_search>
+ 152:	89 2b       	or	r24, r25
+ 154:	41 f0       	breq	.+16     	; 0x166 <BluetoothManager+0xf8>
+			{
+				// Clear the receive buffer UART.
+				uart_rx_buffer_flush();
+ 156:	47 d1       	rcall	.+654    	; 0x3e6 <uart_rx_buffer_flush>
+				connect->status = BT_LF;
+ 158:	82 e0       	ldi	r24, 0x02	; 2
+ 15a:	88 83       	st	Y, r24
+				connect->timerDelay = DELAY_CFG_02;
+ 15c:	89 eb       	ldi	r24, 0xB9	; 185
+ 15e:	90 e0       	ldi	r25, 0x00	; 0
+ 160:	9b 83       	std	Y+3, r25	; 0x03
+ 162:	8a 83       	std	Y+2, r24	; 0x02
+ 164:	3b c0       	rjmp	.+118    	; 0x1dc <BluetoothManager+0x16e>
+			}
+			else
+			{
+				connect->timerDelay = DELAY_CFG_01;
+ 166:	81 e0       	ldi	r24, 0x01	; 1
+ 168:	90 e0       	ldi	r25, 0x00	; 0
+ 16a:	9b 83       	std	Y+3, r25	; 0x03
+ 16c:	8a 83       	std	Y+2, r24	; 0x02
+ 16e:	36 c0       	rjmp	.+108    	; 0x1dc <BluetoothManager+0x16e>
+			}
+			break;
+			case BT_FW:
+			uart_printr("bt_fw");
+ 170:	80 e6       	ldi	r24, 0x60	; 96
+ 172:	90 e0       	ldi	r25, 0x00	; 0
+ 174:	f3 d1       	rcall	.+998    	; 0x55c <uart_printr>
+			Motor_forward();
+ 176:	4f d0       	rcall	.+158    	; 0x216 <Motor_forward>
+			connect->status = BT_READ;
+ 178:	85 e0       	ldi	r24, 0x05	; 5
+ 17a:	88 83       	st	Y, r24
+			connect->timerDelay = DELAY_CFG_02;
+ 17c:	89 eb       	ldi	r24, 0xB9	; 185
+ 17e:	90 e0       	ldi	r25, 0x00	; 0
+ 180:	9b 83       	std	Y+3, r25	; 0x03
+ 182:	8a 83       	std	Y+2, r24	; 0x02
+			break;
+ 184:	2b c0       	rjmp	.+86     	; 0x1dc <BluetoothManager+0x16e>
+			case BT_RV:
+			uart_printr("bt_RV");
+ 186:	86 e6       	ldi	r24, 0x66	; 102
+ 188:	90 e0       	ldi	r25, 0x00	; 0
+ 18a:	e8 d1       	rcall	.+976    	; 0x55c <uart_printr>
+			Motor_reverse();
+ 18c:	4b d0       	rcall	.+150    	; 0x224 <Motor_reverse>
+			connect->status = BT_READ;
+ 18e:	85 e0       	ldi	r24, 0x05	; 5
+ 190:	88 83       	st	Y, r24
+			connect->timerDelay = DELAY_CFG_02;
+ 192:	89 eb       	ldi	r24, 0xB9	; 185
+ 194:	90 e0       	ldi	r25, 0x00	; 0
+ 196:	9b 83       	std	Y+3, r25	; 0x03
+ 198:	8a 83       	std	Y+2, r24	; 0x02
+			break;
+ 19a:	20 c0       	rjmp	.+64     	; 0x1dc <BluetoothManager+0x16e>
+			case BT_STOP:
+			uart_printr("bt_ST");
+ 19c:	8c e6       	ldi	r24, 0x6C	; 108
+ 19e:	90 e0       	ldi	r25, 0x00	; 0
+ 1a0:	dd d1       	rcall	.+954    	; 0x55c <uart_printr>
+			Motor_stop();
+ 1a2:	30 d0       	rcall	.+96     	; 0x204 <Motor_stop>
+			connect->status = BT_READ;
+ 1a4:	85 e0       	ldi	r24, 0x05	; 5
+ 1a6:	88 83       	st	Y, r24
+			connect->timerDelay = DELAY_CFG_02;
+ 1a8:	89 eb       	ldi	r24, 0xB9	; 185
+ 1aa:	90 e0       	ldi	r25, 0x00	; 0
+ 1ac:	9b 83       	std	Y+3, r25	; 0x03
+ 1ae:	8a 83       	std	Y+2, r24	; 0x02
+			break;
+ 1b0:	15 c0       	rjmp	.+42     	; 0x1dc <BluetoothManager+0x16e>
+			case BT_RT:
+			uart_printr("bt_RT");
+ 1b2:	82 e7       	ldi	r24, 0x72	; 114
+ 1b4:	90 e0       	ldi	r25, 0x00	; 0
+ 1b6:	d2 d1       	rcall	.+932    	; 0x55c <uart_printr>
+			Motor_right();
+ 1b8:	3c d0       	rcall	.+120    	; 0x232 <Motor_right>
+			connect->status = BT_READ;
+ 1ba:	85 e0       	ldi	r24, 0x05	; 5
+ 1bc:	88 83       	st	Y, r24
+			connect->timerDelay = DELAY_CFG_02;
+ 1be:	89 eb       	ldi	r24, 0xB9	; 185
+ 1c0:	90 e0       	ldi	r25, 0x00	; 0
+ 1c2:	9b 83       	std	Y+3, r25	; 0x03
+ 1c4:	8a 83       	std	Y+2, r24	; 0x02
+			break;
+ 1c6:	0a c0       	rjmp	.+20     	; 0x1dc <BluetoothManager+0x16e>
+			case BT_LF:
+			uart_printr("bt_LF");
+ 1c8:	88 e7       	ldi	r24, 0x78	; 120
+ 1ca:	90 e0       	ldi	r25, 0x00	; 0
+ 1cc:	c7 d1       	rcall	.+910    	; 0x55c <uart_printr>
+			Motor_left();
+ 1ce:	36 d0       	rcall	.+108    	; 0x23c <Motor_left>
+			connect->status = BT_READ;
+ 1d0:	85 e0       	ldi	r24, 0x05	; 5
+ 1d2:	88 83       	st	Y, r24
+			connect->timerDelay = DELAY_CFG_02;
+ 1d4:	89 eb       	ldi	r24, 0xB9	; 185
+ 1d6:	90 e0       	ldi	r25, 0x00	; 0
+ 1d8:	9b 83       	std	Y+3, r25	; 0x03
+ 1da:	8a 83       	std	Y+2, r24	; 0x02
+			default:
+			
+			break;
+		}
+	}
+}
+ 1dc:	df 91       	pop	r29
+ 1de:	cf 91       	pop	r28
+ 1e0:	08 95       	ret
+
+000001e2 <BT_Manager>:
+
+void BT_Manager(void)
+{
+	BluetoothManager((BTCON*)&BT_connection);
+ 1e2:	87 e9       	ldi	r24, 0x97	; 151
+ 1e4:	90 e0       	ldi	r25, 0x00	; 0
+ 1e6:	43 cf       	rjmp	.-378    	; 0x6e <BluetoothManager>
+ 1e8:	08 95       	ret
+
+000001ea <Bluetooth_Init>:
+}
+
+void Bluetooth_Init(void)
+{
+	uart_init(9600);
+ 1ea:	80 e8       	ldi	r24, 0x80	; 128
+ 1ec:	95 e2       	ldi	r25, 0x25	; 37
+ 1ee:	c4 d1       	rcall	.+904    	; 0x578 <uart_init>
+/*	function Declaration */
+//////////////////////////////////////////////////////////////////////////
+
+void Bluetooth_cfg_connect (BTCON* connect)
+{
+	connect->status = BT_READ;
+ 1f0:	85 e0       	ldi	r24, 0x05	; 5
+ 1f2:	80 93 97 00 	sts	0x0097, r24	; 0x800097 <BT_connection>
+
+void Bluetooth_Init(void)
+{
+	uart_init(9600);
+	Bluetooth_cfg_connect((BTCON*)&BT_connection);
+	addTask(1,BT_Manager,10);
+ 1f6:	4a e0       	ldi	r20, 0x0A	; 10
+ 1f8:	50 e0       	ldi	r21, 0x00	; 0
+ 1fa:	61 ef       	ldi	r22, 0xF1	; 241
+ 1fc:	70 e0       	ldi	r23, 0x00	; 0
+ 1fe:	81 e0       	ldi	r24, 0x01	; 1
+ 200:	43 c0       	rjmp	.+134    	; 0x288 <addTask>
+ 202:	08 95       	ret
+
+00000204 <Motor_stop>:
+	Motor_stop();
+}
+
+void Motor_stop(void)
+{
+	MOTOR_PORT &= ~((1<<M1_0)|(1<<M1_1)|(1<<M2_0)|(1<<M2_1));
+ 204:	82 b3       	in	r24, 0x12	; 18
+ 206:	8f 70       	andi	r24, 0x0F	; 15
+ 208:	82 bb       	out	0x12, r24	; 18
+ 20a:	08 95       	ret
+
+0000020c <Motor_init>:
+#include "lib/MOTOR/motor.h"
+
+//Function Defination
+void Motor_init(void)
+{
+	MOTOR_DDR |= (1<<M1_0)|(1<<M1_1)|(1<<M2_0)|(1<<M2_1);
+ 20c:	81 b3       	in	r24, 0x11	; 17
+ 20e:	80 6f       	ori	r24, 0xF0	; 240
+ 210:	81 bb       	out	0x11, r24	; 17
+	Motor_stop();
+ 212:	f8 cf       	rjmp	.-16     	; 0x204 <Motor_stop>
+ 214:	08 95       	ret
+
+00000216 <Motor_forward>:
+	MOTOR_PORT &= ~((1<<M1_0)|(1<<M1_1)|(1<<M2_0)|(1<<M2_1));
+}
+
+void Motor_forward(void)
+{
+	MOTOR_PORT |= (1<<M1_0)|(1<<M2_0);
+ 216:	82 b3       	in	r24, 0x12	; 18
+ 218:	80 65       	ori	r24, 0x50	; 80
+ 21a:	82 bb       	out	0x12, r24	; 18
+	MOTOR_PORT &= ~((1<<M1_1)|(1<<M2_1));
+ 21c:	82 b3       	in	r24, 0x12	; 18
+ 21e:	8f 75       	andi	r24, 0x5F	; 95
+ 220:	82 bb       	out	0x12, r24	; 18
+ 222:	08 95       	ret
+
+00000224 <Motor_reverse>:
+}
+
+void Motor_reverse(void)
+{
+	MOTOR_PORT |= (1<<M1_1)|(1<<M2_1);
+ 224:	82 b3       	in	r24, 0x12	; 18
+ 226:	80 6a       	ori	r24, 0xA0	; 160
+ 228:	82 bb       	out	0x12, r24	; 18
+	MOTOR_PORT &= ~((1<<M1_0)|(1<<M2_0));
+ 22a:	82 b3       	in	r24, 0x12	; 18
+ 22c:	8f 7a       	andi	r24, 0xAF	; 175
+ 22e:	82 bb       	out	0x12, r24	; 18
+ 230:	08 95       	ret
+
+00000232 <Motor_right>:
+}
+
+void Motor_right(void)
+{
+	MOTOR_PORT |= (1<<M1_0);
+ 232:	94 9a       	sbi	0x12, 4	; 18
+	MOTOR_PORT &= ~((1<<M2_0)|(1<<M2_1)|(1<<M1_1));
+ 234:	82 b3       	in	r24, 0x12	; 18
+ 236:	8f 71       	andi	r24, 0x1F	; 31
+ 238:	82 bb       	out	0x12, r24	; 18
+ 23a:	08 95       	ret
+
+0000023c <Motor_left>:
+}
+
+void Motor_left(void)
+{
+	MOTOR_PORT |= (1<<M2_0);
+ 23c:	96 9a       	sbi	0x12, 6	; 18
+	MOTOR_PORT &= ~((1<<M1_0)|(1<<M2_1)|(1<<M1_1));
+ 23e:	82 b3       	in	r24, 0x12	; 18
+ 240:	8f 74       	andi	r24, 0x4F	; 79
+ 242:	82 bb       	out	0x12, r24	; 18
+ 244:	08 95       	ret
+
+00000246 <initScheduler>:
+	for(uint8_t i=0;i<MAX_TASKS;i++)
+	{
+		if( task_list[i].id == id )
+		return task_list[i].status;
+	} return ERROR;
+}
+ 246:	eb e9       	ldi	r30, 0x9B	; 155
+ 248:	f0 e0       	ldi	r31, 0x00	; 0
+ 24a:	2b ee       	ldi	r18, 0xEB	; 235
+ 24c:	30 e0       	ldi	r19, 0x00	; 0
+ 24e:	82 e0       	ldi	r24, 0x02	; 2
+ 250:	10 82       	st	Z, r1
+ 252:	12 82       	std	Z+2, r1	; 0x02
+ 254:	11 82       	std	Z+1, r1	; 0x01
+ 256:	14 82       	std	Z+4, r1	; 0x04
+ 258:	13 82       	std	Z+3, r1	; 0x03
+ 25a:	16 82       	std	Z+6, r1	; 0x06
+ 25c:	15 82       	std	Z+5, r1	; 0x05
+ 25e:	87 83       	std	Z+7, r24	; 0x07
+ 260:	38 96       	adiw	r30, 0x08	; 8
+ 262:	e2 17       	cp	r30, r18
+ 264:	f3 07       	cpc	r31, r19
+ 266:	a1 f7       	brne	.-24     	; 0x250 <initScheduler+0xa>
+ 268:	83 e0       	ldi	r24, 0x03	; 3
+ 26a:	8f bd       	out	0x2f, r24	; 47
+ 26c:	8b e1       	ldi	r24, 0x1B	; 27
+ 26e:	8e bd       	out	0x2e, r24	; 46
+ 270:	8a ef       	ldi	r24, 0xFA	; 250
+ 272:	90 e0       	ldi	r25, 0x00	; 0
+ 274:	9b bd       	out	0x2b, r25	; 43
+ 276:	8a bd       	out	0x2a, r24	; 42
+ 278:	88 b7       	in	r24, 0x38	; 56
+ 27a:	84 60       	ori	r24, 0x04	; 4
+ 27c:	88 bf       	out	0x38, r24	; 56
+ 27e:	89 b7       	in	r24, 0x39	; 57
+ 280:	84 60       	ori	r24, 0x04	; 4
+ 282:	89 bf       	out	0x39, r24	; 57
+ 284:	78 94       	sei
+ 286:	08 95       	ret
+
+00000288 <addTask>:
+ 288:	a2 ea       	ldi	r26, 0xA2	; 162
+ 28a:	b0 e0       	ldi	r27, 0x00	; 0
+ 28c:	20 e0       	ldi	r18, 0x00	; 0
+ 28e:	30 e0       	ldi	r19, 0x00	; 0
+ 290:	f9 01       	movw	r30, r18
+ 292:	9c 91       	ld	r25, X
+ 294:	92 30       	cpi	r25, 0x02	; 2
+ 296:	89 f4       	brne	.+34     	; 0x2ba <addTask+0x32>
+ 298:	ee 0f       	add	r30, r30
+ 29a:	ff 1f       	adc	r31, r31
+ 29c:	ee 0f       	add	r30, r30
+ 29e:	ff 1f       	adc	r31, r31
+ 2a0:	ee 0f       	add	r30, r30
+ 2a2:	ff 1f       	adc	r31, r31
+ 2a4:	e5 56       	subi	r30, 0x65	; 101
+ 2a6:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2a8:	80 83       	st	Z, r24
+ 2aa:	72 83       	std	Z+2, r23	; 0x02
+ 2ac:	61 83       	std	Z+1, r22	; 0x01
+ 2ae:	54 83       	std	Z+4, r21	; 0x04
+ 2b0:	43 83       	std	Z+3, r20	; 0x03
+ 2b2:	56 83       	std	Z+6, r21	; 0x06
+ 2b4:	45 83       	std	Z+5, r20	; 0x05
+ 2b6:	17 82       	std	Z+7, r1	; 0x07
+ 2b8:	08 95       	ret
+ 2ba:	2f 5f       	subi	r18, 0xFF	; 255
+ 2bc:	3f 4f       	sbci	r19, 0xFF	; 255
+ 2be:	18 96       	adiw	r26, 0x08	; 8
+ 2c0:	2a 30       	cpi	r18, 0x0A	; 10
+ 2c2:	31 05       	cpc	r19, r1
+ 2c4:	29 f7       	brne	.-54     	; 0x290 <addTask+0x8>
+ 2c6:	08 95       	ret
+
+000002c8 <dispatchTasks>:
+
+
+// dispatches tasks when they are ready to run
+void dispatchTasks(void)
+{
+ 2c8:	df 92       	push	r13
+ 2ca:	ef 92       	push	r14
+ 2cc:	ff 92       	push	r15
+ 2ce:	0f 93       	push	r16
+ 2d0:	1f 93       	push	r17
+ 2d2:	cf 93       	push	r28
+ 2d4:	df 93       	push	r29
+	if (TaskTick)
+ 2d6:	80 91 8c 00 	lds	r24, 0x008C	; 0x80008c <__data_end>
+ 2da:	88 23       	and	r24, r24
+ 2dc:	21 f1       	breq	.+72     	; 0x326 <dispatchTasks+0x5e>
+	{
+		TaskTick=0;
+ 2de:	10 92 8c 00 	sts	0x008C, r1	; 0x80008c <__data_end>
+ 2e2:	cc e9       	ldi	r28, 0x9C	; 156
+ 2e4:	d0 e0       	ldi	r29, 0x00	; 0
+ 2e6:	0f 2e       	mov	r0, r31
+ 2e8:	fc ee       	ldi	r31, 0xEC	; 236
+ 2ea:	ef 2e       	mov	r14, r31
+ 2ec:	f0 e0       	ldi	r31, 0x00	; 0
+ 2ee:	ff 2e       	mov	r15, r31
+ 2f0:	f0 2d       	mov	r31, r0
+			if(task_list[i].status == RUNNABLE )
+			{
+				if (!task_list[i].delay)
+				{
+					// task is now running
+					task_list[i].status = RUNNING;
+ 2f2:	dd 24       	eor	r13, r13
+ 2f4:	d3 94       	inc	r13
+	{
+		TaskTick=0;
+		for(uint8_t i=0;i<MAX_TASKS;i++)
+		{
+			// check for a valid task ready to run
+			if(task_list[i].status == RUNNABLE )
+ 2f6:	8e 81       	ldd	r24, Y+6	; 0x06
+ 2f8:	81 11       	cpse	r24, r1
+ 2fa:	11 c0       	rjmp	.+34     	; 0x31e <dispatchTasks+0x56>
+			{
+				if (!task_list[i].delay)
+ 2fc:	8a 81       	ldd	r24, Y+2	; 0x02
+ 2fe:	9b 81       	ldd	r25, Y+3	; 0x03
+ 300:	00 97       	sbiw	r24, 0x00	; 0
+ 302:	51 f4       	brne	.+20     	; 0x318 <dispatchTasks+0x50>
+				{
+					// task is now running
+					task_list[i].status = RUNNING;
+ 304:	de 82       	std	Y+6, r13	; 0x06
+					// call the task
+					(*task_list[i].task)();
+ 306:	e8 81       	ld	r30, Y
+ 308:	f9 81       	ldd	r31, Y+1	; 0x01
+ 30a:	09 95       	icall
+					// reset the delay
+					task_list[i].delay = task_list[i].period;
+ 30c:	8c 81       	ldd	r24, Y+4	; 0x04
+ 30e:	9d 81       	ldd	r25, Y+5	; 0x05
+ 310:	9b 83       	std	Y+3, r25	; 0x03
+ 312:	8a 83       	std	Y+2, r24	; 0x02
+					// task is runnable again
+					task_list[i].status = RUNNABLE;
+ 314:	1e 82       	std	Y+6, r1	; 0x06
+ 316:	03 c0       	rjmp	.+6      	; 0x31e <dispatchTasks+0x56>
+				}
+				else
+				{
+					task_list[i].delay--;
+ 318:	01 97       	sbiw	r24, 0x01	; 1
+ 31a:	9b 83       	std	Y+3, r25	; 0x03
+ 31c:	8a 83       	std	Y+2, r24	; 0x02
+ 31e:	28 96       	adiw	r28, 0x08	; 8
+void dispatchTasks(void)
+{
+	if (TaskTick)
+	{
+		TaskTick=0;
+		for(uint8_t i=0;i<MAX_TASKS;i++)
+ 320:	ce 15       	cp	r28, r14
+ 322:	df 05       	cpc	r29, r15
+ 324:	41 f7       	brne	.-48     	; 0x2f6 <dispatchTasks+0x2e>
+					task_list[i].delay--;
+				}
+			}
+		}
+	}
+}
+ 326:	df 91       	pop	r29
+ 328:	cf 91       	pop	r28
+ 32a:	1f 91       	pop	r17
+ 32c:	0f 91       	pop	r16
+ 32e:	ff 90       	pop	r15
+ 330:	ef 90       	pop	r14
+ 332:	df 90       	pop	r13
+ 334:	08 95       	ret
+
+00000336 <__vector_8>:
+
+
+// generates a "tick"
+// each tick 1ms apart
+ISR(TASK_TIMER_OVF_vec)
+{
+ 336:	1f 92       	push	r1
+ 338:	0f 92       	push	r0
+ 33a:	0f b6       	in	r0, 0x3f	; 63
+ 33c:	0f 92       	push	r0
+ 33e:	11 24       	eor	r1, r1
+ 340:	8f 93       	push	r24
+	TaskTick = 1;	//Task timer tick variable.
+ 342:	81 e0       	ldi	r24, 0x01	; 1
+ 344:	80 93 8c 00 	sts	0x008C, r24	; 0x80008c <__data_end>
+}
+ 348:	8f 91       	pop	r24
+ 34a:	0f 90       	pop	r0
+ 34c:	0f be       	out	0x3f, r0	; 63
+ 34e:	0f 90       	pop	r0
+ 350:	1f 90       	pop	r1
+ 352:	18 95       	reti
+
+00000354 <__vector_11>:
+// Copy the string from the Receive buffer in the buffer.
+void uart_tx_buffer_copy (char* buffer, unsigned int start, unsigned int length)
+{
+	unsigned int temp;
+	//uart_putchar(0x00);
+		for (temp=0;temp<length;temp++)
+ 354:	1f 92       	push	r1
+ 356:	0f 92       	push	r0
+ 358:	0f b6       	in	r0, 0x3f	; 63
+ 35a:	0f 92       	push	r0
+ 35c:	11 24       	eor	r1, r1
+ 35e:	2f 93       	push	r18
+ 360:	4f 93       	push	r20
+ 362:	5f 93       	push	r21
+ 364:	8f 93       	push	r24
+ 366:	9f 93       	push	r25
+ 368:	ef 93       	push	r30
+ 36a:	ff 93       	push	r31
+ 36c:	8b b1       	in	r24, 0x0b	; 11
+ 36e:	2c b1       	in	r18, 0x0c	; 12
+ 370:	8c 71       	andi	r24, 0x1C	; 28
+ 372:	69 f5       	brne	.+90     	; 0x3ce <__vector_11+0x7a>
+ 374:	80 91 95 00 	lds	r24, 0x0095	; 0x800095 <rx_wr_index>
+ 378:	90 91 96 00 	lds	r25, 0x0096	; 0x800096 <rx_wr_index+0x1>
+ 37c:	ac 01       	movw	r20, r24
+ 37e:	4f 5f       	subi	r20, 0xFF	; 255
+ 380:	5f 4f       	sbci	r21, 0xFF	; 255
+ 382:	50 93 96 00 	sts	0x0096, r21	; 0x800096 <rx_wr_index+0x1>
+ 386:	40 93 95 00 	sts	0x0095, r20	; 0x800095 <rx_wr_index>
+ 38a:	fc 01       	movw	r30, r24
+ 38c:	e4 51       	subi	r30, 0x14	; 20
+ 38e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 390:	20 83       	st	Z, r18
+ 392:	80 91 95 00 	lds	r24, 0x0095	; 0x800095 <rx_wr_index>
+ 396:	90 91 96 00 	lds	r25, 0x0096	; 0x800096 <rx_wr_index+0x1>
+ 39a:	84 30       	cpi	r24, 0x04	; 4
+ 39c:	91 40       	sbci	r25, 0x01	; 1
+ 39e:	21 f4       	brne	.+8      	; 0x3a8 <__vector_11+0x54>
+ 3a0:	10 92 96 00 	sts	0x0096, r1	; 0x800096 <rx_wr_index+0x1>
+ 3a4:	10 92 95 00 	sts	0x0095, r1	; 0x800095 <rx_wr_index>
+ 3a8:	80 91 91 00 	lds	r24, 0x0091	; 0x800091 <rx_counter>
+ 3ac:	90 91 92 00 	lds	r25, 0x0092	; 0x800092 <rx_counter+0x1>
+ 3b0:	01 96       	adiw	r24, 0x01	; 1
+ 3b2:	90 93 92 00 	sts	0x0092, r25	; 0x800092 <rx_counter+0x1>
+ 3b6:	80 93 91 00 	sts	0x0091, r24	; 0x800091 <rx_counter>
+ 3ba:	84 30       	cpi	r24, 0x04	; 4
+ 3bc:	91 40       	sbci	r25, 0x01	; 1
+ 3be:	39 f4       	brne	.+14     	; 0x3ce <__vector_11+0x7a>
+ 3c0:	10 92 92 00 	sts	0x0092, r1	; 0x800092 <rx_counter+0x1>
+ 3c4:	10 92 91 00 	sts	0x0091, r1	; 0x800091 <rx_counter>
+ 3c8:	81 e0       	ldi	r24, 0x01	; 1
+ 3ca:	80 93 eb 00 	sts	0x00EB, r24	; 0x8000eb <rx_buffer_overflow>
+ 3ce:	ff 91       	pop	r31
+ 3d0:	ef 91       	pop	r30
+ 3d2:	9f 91       	pop	r25
+ 3d4:	8f 91       	pop	r24
+ 3d6:	5f 91       	pop	r21
+ 3d8:	4f 91       	pop	r20
+ 3da:	2f 91       	pop	r18
+ 3dc:	0f 90       	pop	r0
+ 3de:	0f be       	out	0x3f, r0	; 63
+ 3e0:	0f 90       	pop	r0
+ 3e2:	1f 90       	pop	r1
+ 3e4:	18 95       	reti
+
+000003e6 <uart_rx_buffer_flush>:
+ 3e6:	f8 94       	cli
+ 3e8:	10 92 96 00 	sts	0x0096, r1	; 0x800096 <rx_wr_index+0x1>
+ 3ec:	10 92 95 00 	sts	0x0095, r1	; 0x800095 <rx_wr_index>
+ 3f0:	10 92 94 00 	sts	0x0094, r1	; 0x800094 <rx_rd_index+0x1>
+ 3f4:	10 92 93 00 	sts	0x0093, r1	; 0x800093 <rx_rd_index>
+ 3f8:	10 92 92 00 	sts	0x0092, r1	; 0x800092 <rx_counter+0x1>
+ 3fc:	10 92 91 00 	sts	0x0091, r1	; 0x800091 <rx_counter>
+ 400:	10 92 eb 00 	sts	0x00EB, r1	; 0x8000eb <rx_buffer_overflow>
+ 404:	78 94       	sei
+ 406:	80 e0       	ldi	r24, 0x00	; 0
+ 408:	90 e0       	ldi	r25, 0x00	; 0
+ 40a:	fc 01       	movw	r30, r24
+ 40c:	e4 51       	subi	r30, 0x14	; 20
+ 40e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 410:	10 82       	st	Z, r1
+ 412:	01 96       	adiw	r24, 0x01	; 1
+ 414:	84 30       	cpi	r24, 0x04	; 4
+ 416:	21 e0       	ldi	r18, 0x01	; 1
+ 418:	92 07       	cpc	r25, r18
+ 41a:	b9 f7       	brne	.-18     	; 0x40a <__LOCK_REGION_LENGTH__+0xa>
+ 41c:	08 95       	ret
+
+0000041e <uart_tx_buffer_search>:
+ 41e:	0f 93       	push	r16
+ 420:	1f 93       	push	r17
+ 422:	cf 93       	push	r28
+ 424:	df 93       	push	r29
+ 426:	20 91 91 00 	lds	r18, 0x0091	; 0x800091 <rx_counter>
+ 42a:	30 91 92 00 	lds	r19, 0x0092	; 0x800092 <rx_counter+0x1>
+ 42e:	8b 01       	movw	r16, r22
+ 430:	26 17       	cp	r18, r22
+ 432:	37 07       	cpc	r19, r23
+ 434:	08 f4       	brcc	.+2      	; 0x438 <uart_tx_buffer_search+0x1a>
+ 436:	42 c0       	rjmp	.+132    	; 0x4bc <__stack+0x5d>
+ 438:	16 16       	cp	r1, r22
+ 43a:	17 06       	cpc	r1, r23
+ 43c:	0c f0       	brlt	.+2      	; 0x440 <uart_tx_buffer_search+0x22>
+ 43e:	41 c0       	rjmp	.+130    	; 0x4c2 <__stack+0x63>
+ 440:	64 2f       	mov	r22, r20
+ 442:	75 2f       	mov	r23, r21
+ 444:	ec 01       	movw	r28, r24
+ 446:	fc 01       	movw	r30, r24
+ 448:	94 91       	lpm	r25, Z
+ 44a:	20 91 91 00 	lds	r18, 0x0091	; 0x800091 <rx_counter>
+ 44e:	30 91 92 00 	lds	r19, 0x0092	; 0x800092 <rx_counter+0x1>
+ 452:	62 17       	cp	r22, r18
+ 454:	73 07       	cpc	r23, r19
+ 456:	c0 f5       	brcc	.+112    	; 0x4c8 <__stack+0x69>
+ 458:	fb 01       	movw	r30, r22
+ 45a:	e4 51       	subi	r30, 0x14	; 20
+ 45c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 45e:	80 81       	ld	r24, Z
+ 460:	89 13       	cpse	r24, r25
+ 462:	20 c0       	rjmp	.+64     	; 0x4a4 <__stack+0x45>
+ 464:	fb 01       	movw	r30, r22
+ 466:	e4 51       	subi	r30, 0x14	; 20
+ 468:	ff 4f       	sbci	r31, 0xFF	; 255
+ 46a:	90 81       	ld	r25, Z
+ 46c:	89 13       	cpse	r24, r25
+ 46e:	12 c0       	rjmp	.+36     	; 0x494 <__stack+0x35>
+ 470:	20 e0       	ldi	r18, 0x00	; 0
+ 472:	30 e0       	ldi	r19, 0x00	; 0
+ 474:	2f 5f       	subi	r18, 0xFF	; 255
+ 476:	3f 4f       	sbci	r19, 0xFF	; 255
+ 478:	fe 01       	movw	r30, r28
+ 47a:	e2 0f       	add	r30, r18
+ 47c:	f3 1f       	adc	r31, r19
+ 47e:	e4 91       	lpm	r30, Z
+ 480:	c9 01       	movw	r24, r18
+ 482:	86 0f       	add	r24, r22
+ 484:	97 1f       	adc	r25, r23
+ 486:	dc 01       	movw	r26, r24
+ 488:	a4 51       	subi	r26, 0x14	; 20
+ 48a:	bf 4f       	sbci	r27, 0xFF	; 255
+ 48c:	4c 91       	ld	r20, X
+ 48e:	4e 17       	cp	r20, r30
+ 490:	89 f3       	breq	.-30     	; 0x474 <__stack+0x15>
+ 492:	03 c0       	rjmp	.+6      	; 0x49a <__stack+0x3b>
+ 494:	cb 01       	movw	r24, r22
+ 496:	20 e0       	ldi	r18, 0x00	; 0
+ 498:	30 e0       	ldi	r19, 0x00	; 0
+ 49a:	02 17       	cp	r16, r18
+ 49c:	13 07       	cpc	r17, r19
+ 49e:	b1 f0       	breq	.+44     	; 0x4cc <__stack+0x6d>
+ 4a0:	fe 01       	movw	r30, r28
+ 4a2:	94 91       	lpm	r25, Z
+ 4a4:	6f 5f       	subi	r22, 0xFF	; 255
+ 4a6:	7f 4f       	sbci	r23, 0xFF	; 255
+ 4a8:	20 91 91 00 	lds	r18, 0x0091	; 0x800091 <rx_counter>
+ 4ac:	30 91 92 00 	lds	r19, 0x0092	; 0x800092 <rx_counter+0x1>
+ 4b0:	62 17       	cp	r22, r18
+ 4b2:	73 07       	cpc	r23, r19
+ 4b4:	88 f2       	brcs	.-94     	; 0x458 <uart_tx_buffer_search+0x3a>
+ 4b6:	80 e0       	ldi	r24, 0x00	; 0
+ 4b8:	90 e0       	ldi	r25, 0x00	; 0
+ 4ba:	08 c0       	rjmp	.+16     	; 0x4cc <__stack+0x6d>
+ 4bc:	80 e0       	ldi	r24, 0x00	; 0
+ 4be:	90 e0       	ldi	r25, 0x00	; 0
+ 4c0:	05 c0       	rjmp	.+10     	; 0x4cc <__stack+0x6d>
+ 4c2:	80 e0       	ldi	r24, 0x00	; 0
+ 4c4:	90 e0       	ldi	r25, 0x00	; 0
+ 4c6:	02 c0       	rjmp	.+4      	; 0x4cc <__stack+0x6d>
+ 4c8:	80 e0       	ldi	r24, 0x00	; 0
+ 4ca:	90 e0       	ldi	r25, 0x00	; 0
+ 4cc:	df 91       	pop	r29
+ 4ce:	cf 91       	pop	r28
+ 4d0:	1f 91       	pop	r17
+ 4d2:	0f 91       	pop	r16
+ 4d4:	08 95       	ret
+
+000004d6 <__vector_13>:
+ 4d6:	1f 92       	push	r1
+ 4d8:	0f 92       	push	r0
+ 4da:	0f b6       	in	r0, 0x3f	; 63
+ 4dc:	0f 92       	push	r0
+ 4de:	11 24       	eor	r1, r1
+ 4e0:	2f 93       	push	r18
+ 4e2:	3f 93       	push	r19
+ 4e4:	8f 93       	push	r24
+ 4e6:	9f 93       	push	r25
+ 4e8:	ef 93       	push	r30
+ 4ea:	ff 93       	push	r31
+ 4ec:	80 91 8d 00 	lds	r24, 0x008D	; 0x80008d <tx_counter>
+ 4f0:	90 91 8e 00 	lds	r25, 0x008E	; 0x80008e <tx_counter+0x1>
+ 4f4:	89 2b       	or	r24, r25
+ 4f6:	19 f1       	breq	.+70     	; 0x53e <__vector_13+0x68>
+ 4f8:	80 91 8d 00 	lds	r24, 0x008D	; 0x80008d <tx_counter>
+ 4fc:	90 91 8e 00 	lds	r25, 0x008E	; 0x80008e <tx_counter+0x1>
+ 500:	01 97       	sbiw	r24, 0x01	; 1
+ 502:	90 93 8e 00 	sts	0x008E, r25	; 0x80008e <tx_counter+0x1>
+ 506:	80 93 8d 00 	sts	0x008D, r24	; 0x80008d <tx_counter>
+ 50a:	80 91 8f 00 	lds	r24, 0x008F	; 0x80008f <tx_rd_index>
+ 50e:	90 91 90 00 	lds	r25, 0x0090	; 0x800090 <tx_rd_index+0x1>
+ 512:	9c 01       	movw	r18, r24
+ 514:	2f 5f       	subi	r18, 0xFF	; 255
+ 516:	3f 4f       	sbci	r19, 0xFF	; 255
+ 518:	30 93 90 00 	sts	0x0090, r19	; 0x800090 <tx_rd_index+0x1>
+ 51c:	20 93 8f 00 	sts	0x008F, r18	; 0x80008f <tx_rd_index>
+ 520:	fc 01       	movw	r30, r24
+ 522:	e0 51       	subi	r30, 0x10	; 16
+ 524:	fe 4f       	sbci	r31, 0xFE	; 254
+ 526:	80 81       	ld	r24, Z
+ 528:	8c b9       	out	0x0c, r24	; 12
+ 52a:	80 91 8f 00 	lds	r24, 0x008F	; 0x80008f <tx_rd_index>
+ 52e:	90 91 90 00 	lds	r25, 0x0090	; 0x800090 <tx_rd_index+0x1>
+ 532:	08 97       	sbiw	r24, 0x08	; 8
+ 534:	21 f4       	brne	.+8      	; 0x53e <__vector_13+0x68>
+ 536:	10 92 90 00 	sts	0x0090, r1	; 0x800090 <tx_rd_index+0x1>
+ 53a:	10 92 8f 00 	sts	0x008F, r1	; 0x80008f <tx_rd_index>
+ 53e:	ff 91       	pop	r31
+ 540:	ef 91       	pop	r30
+ 542:	9f 91       	pop	r25
+ 544:	8f 91       	pop	r24
+ 546:	3f 91       	pop	r19
+ 548:	2f 91       	pop	r18
+ 54a:	0f 90       	pop	r0
+ 54c:	0f be       	out	0x3f, r0	; 63
+ 54e:	0f 90       	pop	r0
+ 550:	1f 90       	pop	r1
+ 552:	18 95       	reti
+
+00000554 <uart_putchar>:
+ 554:	5d 9b       	sbis	0x0b, 5	; 11
+ 556:	fe cf       	rjmp	.-4      	; 0x554 <uart_putchar>
+ 558:	8c b9       	out	0x0c, r24	; 12
+ 55a:	08 95       	ret
+
+0000055c <uart_printr>:
+ 55c:	cf 93       	push	r28
+ 55e:	df 93       	push	r29
+ 560:	ec 01       	movw	r28, r24
+ 562:	88 81       	ld	r24, Y
+ 564:	88 23       	and	r24, r24
+ 566:	29 f0       	breq	.+10     	; 0x572 <uart_printr+0x16>
+ 568:	21 96       	adiw	r28, 0x01	; 1
+ 56a:	f4 df       	rcall	.-24     	; 0x554 <uart_putchar>
+ 56c:	89 91       	ld	r24, Y+
+ 56e:	81 11       	cpse	r24, r1
+ 570:	fc cf       	rjmp	.-8      	; 0x56a <uart_printr+0xe>
+ 572:	df 91       	pop	r29
+ 574:	cf 91       	pop	r28
+ 576:	08 95       	ret
+
+00000578 <uart_init>:
+}
+
+// Initialize UART function.
+void uart_init (uint16_t BAUD_RATE)
+{
+	UBRRH = (((F_CPU/BAUD_RATE)/16)-1)>>8;		// set baud rate
+ 578:	9c 01       	movw	r18, r24
+ 57a:	40 e0       	ldi	r20, 0x00	; 0
+ 57c:	50 e0       	ldi	r21, 0x00	; 0
+ 57e:	60 e4       	ldi	r22, 0x40	; 64
+ 580:	72 e4       	ldi	r23, 0x42	; 66
+ 582:	8f e0       	ldi	r24, 0x0F	; 15
+ 584:	90 e0       	ldi	r25, 0x00	; 0
+ 586:	1d d0       	rcall	.+58     	; 0x5c2 <__udivmodsi4>
+ 588:	da 01       	movw	r26, r20
+ 58a:	c9 01       	movw	r24, r18
+ 58c:	01 97       	sbiw	r24, 0x01	; 1
+ 58e:	a1 09       	sbc	r26, r1
+ 590:	b1 09       	sbc	r27, r1
+ 592:	89 2f       	mov	r24, r25
+ 594:	9a 2f       	mov	r25, r26
+ 596:	ab 2f       	mov	r26, r27
+ 598:	bb 27       	eor	r27, r27
+ 59a:	80 bd       	out	0x20, r24	; 32
+  	UBRRL = (((F_CPU/BAUD_RATE)/16)-1);
+ 59c:	21 50       	subi	r18, 0x01	; 1
+ 59e:	29 b9       	out	0x09, r18	; 9
+	1 StopBit
+	char size 8
+
+	*/
+
+	UCSRB |= (1 << RXEN) | (1 << TXEN);   // Turn on the transmission and reception circuitry
+ 5a0:	8a b1       	in	r24, 0x0a	; 10
+ 5a2:	88 61       	ori	r24, 0x18	; 24
+ 5a4:	8a b9       	out	0x0a, r24	; 10
+
+   	UCSRC |= (1 << URSEL) | (1 << UCSZ0) | (1 << UCSZ1); // Use 8-bit character sizes
+ 5a6:	80 b5       	in	r24, 0x20	; 32
+ 5a8:	86 68       	ori	r24, 0x86	; 134
+ 5aa:	80 bd       	out	0x20, r24	; 32
+
+	Enable The receiver and transmitter
+
+	*/
+
+	UCSRB |= (1 << RXCIE); // Enable the USART Receive Complete interrupt (USART_RXC)
+ 5ac:	57 9a       	sbi	0x0a, 7	; 10
+   	sei(); // Enable the Global Interrupt Enable flag so that interrupts can be processed
+ 5ae:	78 94       	sei
+ 5b0:	08 95       	ret
+
+000005b2 <main>:
+// Structure to set up Bluetooth setting.
+
+
+int main(void)
+{	
+	Motor_init();
+ 5b2:	2c de       	rcall	.-936    	; 0x20c <Motor_init>
+	//Initialize Task Scheduler
+	initScheduler();
+ 5b4:	48 de       	rcall	.-880    	; 0x246 <initScheduler>
+	Bluetooth_Init();
+ 5b6:	19 de       	rcall	.-974    	; 0x1ea <Bluetooth_Init>
+	uart_printr("Hello World\r\n");
+ 5b8:	8e e7       	ldi	r24, 0x7E	; 126
+ 5ba:	90 e0       	ldi	r25, 0x00	; 0
+ 5bc:	cf df       	rcall	.-98     	; 0x55c <uart_printr>
+	for(;;)
+	{
+		//Execute Tasks
+		dispatchTasks();
+ 5be:	84 de       	rcall	.-760    	; 0x2c8 <dispatchTasks>
+ 5c0:	fe cf       	rjmp	.-4      	; 0x5be <main+0xc>
+
+000005c2 <__udivmodsi4>:
+ 5c2:	a1 e2       	ldi	r26, 0x21	; 33
+ 5c4:	1a 2e       	mov	r1, r26
+ 5c6:	aa 1b       	sub	r26, r26
+ 5c8:	bb 1b       	sub	r27, r27
+ 5ca:	fd 01       	movw	r30, r26
+ 5cc:	0d c0       	rjmp	.+26     	; 0x5e8 <__udivmodsi4_ep>
+
+000005ce <__udivmodsi4_loop>:
+ 5ce:	aa 1f       	adc	r26, r26
+ 5d0:	bb 1f       	adc	r27, r27
+ 5d2:	ee 1f       	adc	r30, r30
+ 5d4:	ff 1f       	adc	r31, r31
+ 5d6:	a2 17       	cp	r26, r18
+ 5d8:	b3 07       	cpc	r27, r19
+ 5da:	e4 07       	cpc	r30, r20
+ 5dc:	f5 07       	cpc	r31, r21
+ 5de:	20 f0       	brcs	.+8      	; 0x5e8 <__udivmodsi4_ep>
+ 5e0:	a2 1b       	sub	r26, r18
+ 5e2:	b3 0b       	sbc	r27, r19
+ 5e4:	e4 0b       	sbc	r30, r20
+ 5e6:	f5 0b       	sbc	r31, r21
+
+000005e8 <__udivmodsi4_ep>:
+ 5e8:	66 1f       	adc	r22, r22
+ 5ea:	77 1f       	adc	r23, r23
+ 5ec:	88 1f       	adc	r24, r24
+ 5ee:	99 1f       	adc	r25, r25
+ 5f0:	1a 94       	dec	r1
+ 5f2:	69 f7       	brne	.-38     	; 0x5ce <__udivmodsi4_loop>
+ 5f4:	60 95       	com	r22
+ 5f6:	70 95       	com	r23
+ 5f8:	80 95       	com	r24
+ 5fa:	90 95       	com	r25
+ 5fc:	9b 01       	movw	r18, r22
+ 5fe:	ac 01       	movw	r20, r24
+ 600:	bd 01       	movw	r22, r26
+ 602:	cf 01       	movw	r24, r30
+ 604:	08 95       	ret
+
+00000606 <_exit>:
+ 606:	f8 94       	cli
+
+00000608 <__stop_program>:
+ 608:	ff cf       	rjmp	.-2      	; 0x608 <__stop_program>
